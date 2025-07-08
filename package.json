@@ -1,0 +1,27 @@
+{
+    "name": "belajar-nodejs-database",
+    "version": "1.0.0",
+    "description": "Belajar NodeJS Database",
+    "main": "index.js",
+    "scripts": {
+        "test": "jest"
+    },
+    "jest": {
+        "transform": {
+            "^.+\\.[t|j]sx?$": "babel-jest"
+        }
+    },
+    "author": "Anggyar Muhamad Yahya",
+    "license": "ISC",
+    "type": "module",
+    "devDependencies": {
+        "@babel/preset-env": "^7.28.0",
+        "@types/jest": "^30.0.0",
+        "babel-jest": "^30.0.4",
+        "jest": "^30.0.4",
+        "prisma": "^6.11.1"
+    },
+    "dependencies": {
+        "@prisma/client": "^6.11.1"
+    }
+}
