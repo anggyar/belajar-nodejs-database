@@ -1,6 +1,6 @@
 import { prismaClient } from "../src/prisma-client";
 
-describe("Prisma Clinet", () => {
+describe("Prisma Client", () => {
     it("Should be able to create customer", async () => {
         const customer = await prismaClient.customer.create({
             data: {
