@@ -50,3 +50,32 @@ CREATE Table categories (
 ) engine innodb;
 
 SELECT * FROM categories;
+
+CREATE Table wallet (
+    id VARCHAR(100) NOT NULL,
+    balance INT NOT NULL,
+    customer_id VARCHAR(100) NOT NULL,
+    PRIMARY KEY(id),
+    CONSTRAINT walllet_customer_id_fk FOREIGN KEY (customer_id) REFERENCES customers (id),
+    CONSTRAINT wallet_customer_id_unique UNIQUE (customer_id)
+) engine innodb;
+
+SELECT * FROM wallet;
+DESC wallet;
+
+CREATE Table comments (
+    id INT NOT NULL AUTO_INCREMENT,
+    customer_id VARCHAR(100) NOT NULL,
+    title VARCHAR(200) NOT NULL,
+    description TEXT,
+    PRIMARY KEY (id),
+    CONSTRAINT comments_customer_id_fk FOREIGN KEY (customer_id) REFERENCES customers (id)
+) engine innodb;
+
+SELECT * FROM comments;
+
+INSERT INTO comments (customer_id, title, description) 
+VALUES("anggy", "Comment 1", "Sample comment 1"),
+("anggy", "Comment 2", "Sample comment 2"),
+("asyraf", "Comment 1", "Sample comment 1"),
+("asyraf", "Comment 2", "Sample comment 2");

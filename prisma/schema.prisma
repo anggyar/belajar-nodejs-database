@@ -21,12 +21,35 @@ model sample {
 
 // Simple model
 model Customer {
-  id    String @id
-  name  String
-  email String @unique
-  phone String @unique
+  id      String    @id
+  name    String
+  email   String    @unique
+  phone   String    @unique
+  Wallet  Wallet?
+  comment Comment[]
 
   @@map("customers")
+}
+
+// !WALLET
+model Wallet {
+  id          String   @id @db.VarChar(100)
+  balance     Int      @db.Int
+  customer_id String   @unique @db.VarChar(100)
+  customer    Customer @relation(fields: [customer_id], references: [id])
+
+  @@map("wallet")
+}
+
+// !COMMENT
+model Comment {
+  id          Int      @id @default(autoincrement())
+  customer_id String   @db.VarChar(100)
+  title       String   @db.VarChar(200)
+  description String?  @db.Text
+  customer    Customer @relation(fields: [customer_id], references: [id])
+
+  @@map("comments")
 }
 
 model Product {
@@ -39,6 +62,7 @@ model Product {
   @@map("products")
 }
 
+// !AUTO INCREMENT 
 model Category {
   id   Int    @id @default(autoincrement())
   name String @db.VarChar(100)
