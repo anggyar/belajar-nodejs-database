@@ -42,3 +42,11 @@ VALUES('P0006', 'A', 1000, 100, 'K2'),
 ('P0008', 'C', 3000, 300, 'K2'),
 ('P0009', 'D', 4000, 400, 'K2'),
 ('P0010', 'E', 5000, 500, 'K2');
+
+CREATE Table categories (
+    id INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    PRIMARY KEY(id)
+) engine innodb;
+
+SELECT * FROM categories;

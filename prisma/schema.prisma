@@ -30,11 +30,19 @@ model Customer {
 }
 
 model Product {
-  id       String @id
-  name     String
-  price    Int
-  stock    Int
+  id       String @id @db.VarChar(100)
+  name     String @db.VarChar(100)
+  price    Int    @db.Int
+  stock    Int    @db.SmallInt
   category String
 
   @@map("products")
+}
+
+model Category {
+  id   Int    @id @default(autoincrement())
+  name String @db.VarChar(100)
+
+  // nama table
+  @@map("categories")
 }
