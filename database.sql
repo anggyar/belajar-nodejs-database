@@ -79,3 +79,30 @@ VALUES("anggy", "Comment 1", "Sample comment 1"),
 ("anggy", "Comment 2", "Sample comment 2"),
 ("asyraf", "Comment 1", "Sample comment 1"),
 ("asyraf", "Comment 2", "Sample comment 2");
+
+CREATE Table likes (
+    customer_id VARCHAR(100) NOT NULL,
+    product_id VARCHAR(100) NOT NULL,
+    PRIMARY KEY (customer_id, product_id),
+    CONSTRAINT likes_customer_id_fk FOREIGN KEY (customer_id) REFERENCES customers (id),
+    CONSTRAINT likes_product_id_fk FOREIGN KEY (product_id) REFERENCES products (id)
+) engine innodb;
+
+SELECT * FROM likes;
+
+CREATE Table _loves (
+    A VARCHAR(100) NOT NULL,
+    B VARCHAR(100) NOT NULL,
+    PRIMARY KEY(A, B),
+    constraint customer_loves_fk FOREIGN KEY (A) REFERENCES customers (id),
+    constraint likes_product_fk FOREIGN KEY(B) REFERENCES products(id)
+) engine innodb;
+
+SELECT * FROM _loves;
+
+-- ! BELAJAR DATABASE PRISMA
+CREATE DATABASE belajar_nodejs_prisma;
+
+USE belajar_nodejs_prisma;
+
+SHOW TABLES;
